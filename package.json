@@ -1,0 +1,19 @@
+{
+  "name": "lt-node",
+  "version": "1.0.0",
+  "description": "node study",
+  "main": "src/app.js",
+  "scripts": {
+    "start": "node src/app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/muguliebe/lt-node.git"
+  },
+  "author": "zany",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/muguliebe/lt-node/issues"
+  },
+  "homepage": "https://github.com/muguliebe/lt-node#readme"
+}
