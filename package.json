@@ -4,6 +4,7 @@
   "description": "node study",
   "main": "src/app.js",
   "scripts": {
+    "dev": "gulp dev",
     "start": "node src/app.js"
   },
   "repository": {
@@ -15,5 +16,9 @@
   "bugs": {
     "url": "https://github.com/muguliebe/lt-node/issues"
   },
-  "homepage": "https://github.com/muguliebe/lt-node#readme"
+  "homepage": "https://github.com/muguliebe/lt-node#readme",
+  "dependencies": {
+    "gulp": "^3.9.1",
+    "gulp-nodemon": "^2.2.1"
+  }
 }
