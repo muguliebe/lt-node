@@ -8,3 +8,6 @@
 - add gulp file
 - install gulp gulp-nodemon
 - set npm scripts
+
+## 03-es6
+- install babelify
