@@ -17,7 +17,7 @@
     "url": "https://github.com/muguliebe/lt-node/issues"
   },
   "homepage": "https://github.com/muguliebe/lt-node#readme",
-  "dependencies": {
+  "devDependencies": {
     "gulp": "^3.9.1",
     "gulp-nodemon": "^2.2.1"
   }
