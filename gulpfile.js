@@ -2,6 +2,7 @@ const gulp = require('gulp')
 const nodemon = require('gulp-nodemon')
 const babel = require('gulp-babel')
 const del = require('del')
+const sourcemaps = require('gulp-sourcemaps')
 
 const src = './src'
 const dist = './dist'
@@ -11,8 +12,10 @@ gulp.task('clean', () => {
 })
 
 gulp.task('build', () => {
-  return gulp.src(src + '/**/*.js')
+  return gulp.src(`${src}/**/*.js`)
+            .pipe(sourcemaps.init())
             .pipe(babel())
+            .pipe(sourcemaps.write('./', {sourceRoot: `../${src}`}))
             .pipe(gulp.dest(dist))
 })
 

@@ -1,3 +1,4 @@
+require('source-map-support').install();
 var http = require('http');
 var port = process.env.PORT || 8080
 import DateUtils from './modules/date'
