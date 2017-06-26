@@ -7,12 +7,27 @@ export default class Server {
   constructor() {
     console.log('server setting start')
 
+    // =========================================================================
+    // set environments
+    app.set('view engine', 'ejs');
+    app.set('views', 'src/views');
+    app.use(express.static('app/public'));
+
+    // =========================================================================
+    // filter
     app.use(advice.allAround)
-    app.get('/', (req,res) => {
+
+    // =========================================================================
+    // routes bind
+    app.get('/', (req, res) => {
+      res.render('home')
+    })
+
+    app.get('/api/', (req,res) => {
       res.json(`alive with ${process.env.NODE_ENV}`)
     })
 
-    app.get('/test', (req, res) => {
+    app.get('/api/test', (req, res) => {
       console.log('/test start')
       res.json(`good job`)
     })
