@@ -11,3 +11,7 @@
 
 ## 03-es6
 - install babelify
+- install sourcemaps
+
+## 04-url
+- split urls
