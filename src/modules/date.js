@@ -1,5 +1,5 @@
 export default class DateUtil {
-  myDate() {
+  static myDate() {
     return Date()
   }
 }
