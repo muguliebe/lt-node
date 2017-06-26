@@ -20,7 +20,10 @@ export default class Server {
     // =========================================================================
     // routes bind
     app.get('/', (req, res) => {
-      res.render('home')
+      res.render('home', {
+        siteTitle: 'express study',
+        message: 'good job'
+      })
     })
 
     app.get('/api/', (req,res) => {
