@@ -19,22 +19,9 @@ export default class Server {
 
     // =========================================================================
     // routes bind
-    app.get('/', (req, res) => {
-      res.render('home', {
-        siteTitle: 'express study',
-        message: 'good job'
-      })
-    })
-
-    app.get('/api/', (req,res) => {
-      res.json(`alive with ${process.env.NODE_ENV}`)
-    })
-
-    app.get('/api/test', (req, res) => {
-      console.log('/test start')
-      res.json(`good job`)
-    })
-
+    app.use(require('./routes/api'))
+    app.use(require('./routes/home'))
+    app.use(require('./routes/users'))
   }
 
   start() {
