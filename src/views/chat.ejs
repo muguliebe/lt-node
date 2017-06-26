@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <% include partials/template/head.ejs %>
+    <title><%= siteTitle %></title>
+    <style>
+    .form-control {
+      font-weight: 100;
+      font-size: 1.7rem;
+    }
+
+    .chat-form {
+      margin-top: 20px;
+      font-family: "Roboto", sans-serif;
+      font-size: 1.5rem;
+    }
+
+    .chat-display {
+      min-height: 150px;
+      max-height: 40vh;
+      overflow: scroll;
+      font-size: 1.2em;
+    }
+
+    .chat-display p {
+      font-size: .9em;
+      padding: 0 10px;
+    }
+    </style>
+  </head>
+  <body>
+    <% include partials/template/header.ejs %>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12">
+          <article class="chat">
+            <header class="chat-header">
+              <div class="h3 chat-title">Socket Chat
+              </div><!-- chat-title -->
+            </header><!-- chat-header -->
+            <form name="chatForm" class="form-horizontal chat-form">
+              <div class="form-group">
+                <label for="chat-username" class="col-sm-2 control-label">Name</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" id="chat-username" required placeholder="Enter your name">
+                </div><!-- col-sm-10 -->
+              </div><!-- form-group -->
+              <div class="form-group">
+                <label for="chat-message" class="col-sm-2 control-label">Message</label>
+                <div class="col-sm-10">
+                  <div class="input-group">
+                    <input type="text" placeholder="Enter a message, then press enter" class="form-control" id="chat-message" rows="2" autocomplete="off"
+                     required>
+                    <span class="input-group-btn">
+                      <button id="chat-submit" class="btn btn-info" type="submit">Chat</button>
+                    </span>
+                  </div><!-- input-group -->
+                </div><!-- col-sm-10 -->
+              </div><!-- form-group -->
+            </form>
+            <div class="panel panel-default">
+              <div class="panel-body chat-display">
+                <p class="text-muted chat-text">Welcome...add your message using the form above</p>
+              </div><!-- panel-body -->
+            </div><!-- panel-default -->
+          </article><!-- article -->
+        </div><!-- col-sm-12 -->
+      </div><!-- row -->
+    </div><!-- container -->
+    <% include partials/template/jsdefaults.ejs %>
+    <script>
+    var socket = io();
+    var chatUsername = document.querySelector('#chat-username');
+    var chatMessage = document.querySelector('#chat-message');
+
+    socket.on('connect', function() {
+      var chatForm = document.forms.chatForm;
+
+      if (chatForm) {
+        chatForm.addEventListener('submit', function(e) {
+          e.preventDefault();
+          socket.emit('postMessage',{
+            username: chatUsername.value,
+            message: chatMessage.value,
+          });
+          chatMessage.value='';
+          chatMessage.focus();
+        }); //chatform event
+
+        socket.on('updateMessages', function(data) {
+          showMessage(data);
+        }); //updateMessages
+      } //chatform
+    }); //socket
+
+    function showMessage(data) {
+      var chatDisplay = document.querySelector('.chat-display');
+      var newMessage = document.createElement('p');
+
+      if (chatUsername.value == data.username) {
+        newMessage.className = 'bg-success chat-text';
+      } else {
+        newMessage.className = 'bg-info text-warning chat-text';
+      }
+
+      newMessage.innerHTML = '<strong>' + data.username + '</strong>: ' + data.message;
+      chatDisplay.insertBefore(newMessage, chatDisplay.firstChild);
+    }
+
+    </script>
+  </body>
+</html>
