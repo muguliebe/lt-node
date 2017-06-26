@@ -1,9 +1,10 @@
 # lt-node
 
-## 01.start
-just see node scripts
+# contents each branches
+## 01-start
+- just see node scripts
 
-## 02.gulp set
+## 02-gulp
 - add gulp file
 - install gulp gulp-nodemon
 - set npm scripts
