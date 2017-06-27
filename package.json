@@ -19,8 +19,6 @@
     "url": "https://github.com/muguliebe/lt-node/issues"
   },
   "homepage": "https://github.com/muguliebe/lt-node#readme",
-  "devDependencies": {
-  },
   "dependencies": {
     "del": "^3.0.0",
     "babel-eslint": "^7.2.3",
