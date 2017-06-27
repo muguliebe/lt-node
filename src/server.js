@@ -2,9 +2,7 @@ import express from 'express'
 const app = express()
 
 import * as advice from './modules/advice'
-
-import socketio from 'socket.io'
-const io = socketio()
+const io = require('socket.io')()
 
 export default class Server {
   constructor() {
@@ -36,6 +34,20 @@ export default class Server {
     // =========================================================================
     // listen
     let server = app.listen(port)
+
+    // =========================================================================
+    // add socket.io
+    io.attach(server)
+    io.on('connection', (socket) => {
+      console.log('User Connected')
+      socket.on('disconnect', () => {
+        console.log('User Disconnected')
+      })
+
+      socket.on('postMessage', (data) => {
+        io.emit('updateMessages', data)
+      })
+    })
 
     return server
   }
