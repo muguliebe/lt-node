@@ -15,6 +15,14 @@ export default class Server {
     app.use(express.static('src/public'));
 
     // =========================================================================
+    // mongo connect
+    const mongoose = require('mongoose')
+    mongoose.Promise = global.Promise
+    global.mongoDB = mongoose.connect(`mongodb://test:test@ds135812.mlab.com:35812/mugu`, {
+      promiseLibrary: Promise
+    })
+
+    // =========================================================================
     // filter
     app.use(advice.allAround)
 
