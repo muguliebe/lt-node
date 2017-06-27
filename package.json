@@ -5,7 +5,9 @@
   "main": "src/app.js",
   "scripts": {
     "dev": "gulp dev",
-    "start": "node src/app.js"
+    "build": "gulp build",
+    "prestart": "npm run build",
+    "start": "node dist/app.js"
   },
   "repository": {
     "type": "git",
