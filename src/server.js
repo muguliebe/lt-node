@@ -14,7 +14,7 @@ export default class Server {
     // set environments
     app.set('view engine', 'ejs');
     app.set('views', 'src/views');
-    app.use(express.static('app/public'));
+    app.use(express.static('src/public'));
 
     // =========================================================================
     // filter
@@ -35,18 +35,9 @@ export default class Server {
 
     // =========================================================================
     // listen
-    this.server = app.listen(port)
+    let server = app.listen(port)
 
-    // =========================================================================
-    // socket IO
-    io.attach(this.server)
-    io.on('connection', function(socket) {
-      socket.on('postMessage', function(data) {
-        io.emit('updateMessages', data)
-      })
-    })
-    
-    return this.server
+    return server
   }
 
 }
