@@ -1,5 +1,8 @@
 # lt-node
 
+## install program list
+https://goo.gl/q7PM3C
+
 # contents each branches
 ## 01-start
 - just see node scripts
