@@ -20,3 +20,30 @@
 - add express
 - using router
 - using adivce
+
+## 06-01-ejs
+- add view engine
+- create home.ejs
+
+## 06-02-split-ejs
+- split ejs files
+- head, jsdefaults
+
+## 06-03-navbar
+- add navigation
+
+## 06-04-users
+- using fetch
+
+## 06-05-chat
+- make chat page without socket.io
+
+## 06-06-socket
+- adding socket.io for chat
+
+## 07-heroku
+- join heroku and mlab
+
+## 07-01-mongo
+
+## 07-02-mongo-select
