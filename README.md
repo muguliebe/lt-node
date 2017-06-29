@@ -1,7 +1,17 @@
 # lt-node
 
 ## install program list
-[https://goo.gl/q7PM3C](https://goo.gl/q7PM3C)
+#### atom editor
+https://atom.io/
+
+#### git
+https://git-scm.com/downloads
+
+#### cmder
+http://cmder.net/
+
+#### node.js
+https://nodejs.org/ko/
 
 # contents each branches
 ## 01-start
