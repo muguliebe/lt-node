@@ -1,5 +1,3 @@
-# lt-node
-
 ## install program list
 #### atom editor
 [https://atom.io/](https://atom.io/)
